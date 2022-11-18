@@ -8,13 +8,45 @@ namespace Deletos.Handlers
             Console.WriteLine("Welcome to Deletos.\n\n\n");
         }
 
-        public static void Pause(
-                            string pauseMessage = "\n\nDeletos was paused. Press any key to continue: ",
-                            bool showPauseMessage = true)
+        public static bool Pause(bool askToLeave = false)
         {
-            Console.Write(pauseMessage);
+            if(askToLeave)
+            {
+                return Exit();
+            }
+
             Console.ReadKey();
             Console.WriteLine();
+
+            return false;
+        }
+
+        private static bool Exit()
+        {
+            bool? option = null;
+
+            List<string> responseOptions = new List<string> {"yes", "no", "y", "n"};
+
+            while(option == null)
+            {
+                Console.WriteLine("\n\nDo you wish to abort the program? (Yes/No)");
+
+                string response = Console.ReadLine()?.ToLower() ?? string.Empty;
+
+                if(!string.IsNullOrEmpty(response))
+                {
+                    if(responseOptions.Any(s => string.Equals(s, response)))
+                    {
+                        return true;
+                    }
+                    else
+                    {
+                        Console.WriteLine("Option not available");
+                    }
+                }
+            }
+
+            return (bool)option;
         }
     }
 }
