@@ -1,31 +1,29 @@
 ﻿using Deletos.Handlers;
-using Deletos.Strings;
+using Deletos.Profiles;
 
 bool exit = false;
 do
 {
-    ProgramHandler.Start();
+    var profile = ProgramHandler.Start();
 
-    List<CheckBlankSpaces> blankSpacesCheckerList = new List<CheckBlankSpaces>();
-
-    blankSpacesCheckerList.Add(new CheckBlankSpaces("There are spaces before or after the name.", false));
-    blankSpacesCheckerList.Add(new CheckBlankSpaces("There must not be spaces in the name.", true));
-
-    string stringToValidate = "Validate this string";
-
-    foreach(CheckBlankSpaces item in blankSpacesCheckerList)
+    //Code to check if is Rui or Andre
+    switch(profile)
     {
-        (bool, string) result = item.Validate(stringToValidate);
-
-        if(result.Item1)
-        {
-            Console.WriteLine($"The string: \"{stringToValidate}\" is valid");
-        }
-        else
-        {
-            Console.WriteLine(result.Item2);
-        }
+        case 1:
+            Andre.Menu();
+            break;
+        case 2:
+            Rui.Menu();
+            break;
+        default:
+            Console.WriteLine("New Phone, who this?");
+            break;
     }
+    
 
-    ProgramHandler.Pause(true);
+    exit = ProgramHandler.Exit();
+
 }while(!exit);
+
+Console.WriteLine("Thank you, come again");
+Console.ReadKey();
