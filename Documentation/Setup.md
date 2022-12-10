@@ -12,5 +12,5 @@ dotnet --version
  ```
 
 
-[Next: Clone, Build and Run Deletos ->](https://github.com/eusouorui/Deletos/tree/master/Documentation/media/Setup2.md)
+[Next: Clone, Build and Run Deletos ->](https://github.com/eusouorui/Deletos/blob/master/Documentation/Setup2.md)
 
