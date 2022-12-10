@@ -1,27 +1,24 @@
 namespace Deletos.Handlers
 {
+    using Deletos.Enums;
     public static class ProgramHandler
     {
-        public static void Start()
+        public static int Start()
         {
             Console.Clear();
             Console.WriteLine("Welcome to Deletos.\n\n\n");
+            
+            return SelectProfile();
         }
 
-        public static bool Pause(bool askToLeave = false)
+        public static void Pause(bool askToLeave = false)
         {
-            if(askToLeave)
-            {
-                return Exit();
-            }
-
             Console.ReadKey();
             Console.WriteLine();
-
-            return false;
         }
 
-        private static bool Exit()
+        //TODO rever isto
+        public static bool Exit()
         {
             bool? option = null;
 
@@ -48,5 +45,27 @@ namespace Deletos.Handlers
 
             return (bool)option;
         }
+
+        private static int SelectProfile()
+        {
+            Console.WriteLine("Please select your profile:");
+            
+            var profiles = new List<Profile> 
+            {
+                //TODO get a better way of doing this
+                Profile.Andre,
+                Profile.Rui,
+            };
+
+            foreach(var profile in profiles)
+            {
+                Console.WriteLine((int)profile + " - " + profile);
+            }
+
+            int.TryParse(Console.ReadLine(), out int chosenProfile);
+
+            //TODO make validations
+            return chosenProfile;
+        } 
     }
 }
