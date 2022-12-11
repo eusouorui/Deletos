@@ -11,6 +11,4 @@ To confirm your machine's .NET version you can open your prefered console or ter
 dotnet --version 
  ```
 
-
 [Next: Clone, Build and Run Deletos ->](https://github.com/eusouorui/Deletos/tree/master/Documentation/media/Setup2.md)
-

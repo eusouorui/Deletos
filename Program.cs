@@ -19,7 +19,6 @@ do
             Console.WriteLine("New Phone, who this?");
             break;
     }
-    
 
     exit = ProgramHandler.Exit();
 

@@ -21,39 +21,39 @@ namespace Deletos.Strings
         }
 
         private static void WriteStringWithoutSpaces(string stringToTrim, bool useForEach)
+        {
+            if (useForEach)
             {
-                if (useForEach)
+                Console.WriteLine("\nUsing foreach loop:");
+                foreach (var c in stringToTrim)
                 {
-                    Console.WriteLine("\nUsing foreach loop:");
-                    foreach (var c in stringToTrim)
+                    if (c != ' ')
                     {
-                        if (c != ' ')
-                        {
-                            Console.Write(c);
-                        }
-                        else
-                        {
-                            Console.Write("_");
-                        }
+                        Console.Write(c);
+                    }
+                    else
+                    {
+                        Console.Write("_");
                     }
                 }
-                else
-                {
-                    Console.WriteLine("\nUsing for loop:");
-                    for(int i = 0; i < stringToTrim.Length; i++)
-                    {
-                        char currentChar = stringToTrim[i];
-                        if(currentChar != ' ')
-                        {
-                            Console.Write(currentChar);
-                        }
-                        else
-                        {
-                            Console.Write("_");
-                        }
-                    }
-                }
-                Console.WriteLine();
             }
+            else
+            {
+                Console.WriteLine("\nUsing for loop:");
+                for(int i = 0; i < stringToTrim.Length; i++)
+                {
+                    char currentChar = stringToTrim[i];
+                    if(currentChar != ' ')
+                    {
+                        Console.Write(currentChar);
+                    }
+                    else
+                    {
+                        Console.Write("_");
+                    }
+                }
+            }
+            Console.WriteLine();
+        }
     }
 }
