@@ -28,17 +28,17 @@ namespace Deletos.Handlers
             {
                 Console.WriteLine("\n\nDo you wish to abort the program? (Yes/No)");
 
-                string response = Console.ReadLine()?.ToLower() ?? string.Empty;
+                string response = Console.ReadLine()?.ToLower().Trim() ?? string.Empty;
 
                 if(!string.IsNullOrEmpty(response))
                 {
-                    if(responseOptions.Any(s => string.Equals(s, response)))
+                    if(!responseOptions.Any(s => string.Equals(s, response)))
                     {
-                        return true;
+                        Console.WriteLine("Option not available");
                     }
                     else
                     {
-                        Console.WriteLine("Option not available");
+                        return string.Equals("y", response) || string.Equals("yes", response)? true : false;
                     }
                 }
             }
