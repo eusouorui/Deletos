@@ -1,6 +1,6 @@
 # Setup Deletos
 
-Deletos is quite an ever expanding application and this setup should always be refered to or valdiated by <a target="_blank" href="https://github.com/machado-andre">Andre Machado</a> or <a target="_blank" href="https://github.com/eusouorui">Rui Dias</a>.
+Deletos is quite an ever expanding application and this setup should always be refered to or validated by <a target="_blank" href="https://github.com/machado-andre">Andre Machado</a> or <a target="_blank" href="https://github.com/eusouorui">Rui Dias</a>.
 
 ## Get started
 
