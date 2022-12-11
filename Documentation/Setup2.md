@@ -30,3 +30,5 @@ dotnet run
 ```
 
 Deletos should now be running.
+
+[<- Previous: Setup Deletos](https://github.com/eusouorui/Deletos/blob/master/Documentation/Setup.md)
