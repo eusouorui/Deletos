@@ -38,7 +38,7 @@ namespace Deletos.Handlers
                     }
                     else
                     {
-                        return string.Equals("y", response) || string.Equals("yes", response)? true:false;
+                        return string.Equals("y", response) || string.Equals("yes", response)? true : false;
                     }
                 }
             }
