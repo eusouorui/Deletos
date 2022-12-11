@@ -4,6 +4,3 @@
 
 # Lost? Take a tour:
 1. Check our [Setup Guide](https://github.com/eusouorui/Deletos/tree/master/Documentation/Setup.md)
-
-
- 
