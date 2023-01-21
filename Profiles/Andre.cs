@@ -39,7 +39,7 @@ public static class Andre
 
     private static int getChoice()
     {
-        int.TryParse(Console.ReadLine().Trim(), out int optionSelected);
+        int.TryParse(Console.ReadLine() ?? string.Empty.Trim(), out int optionSelected);
 
         return optionSelected;
     }
