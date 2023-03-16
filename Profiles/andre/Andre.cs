@@ -1,7 +1,9 @@
-namespace Deletos.Profiles;
+namespace Deletos.Profiles.Dre;
 
 using System.Threading;
 using System.Linq;
+using System.Data.SqlClient;
+using Dapper;
 public static class Andre
 {
     public static void Menu()
@@ -17,7 +19,7 @@ public static class Andre
                     Console.WriteLine("Option not available brother.");
                     break;
                 case 1:
-                    Console.WriteLine("Are you sure you want to exit? \nYes ->1\nNo -> 2\n");
+                    Console.WriteLine("Are you sure you want to exit? \nYes -> 1\nNo -> 2\n");
                     if(getChoice() == 1)
                         exit = true;
                     askToContinue();
@@ -29,18 +31,34 @@ public static class Andre
                 case 3:
                     theMatrix();
                     break;
+                case 4:
+                    database();
+                    break;
                 default:
                     Console.WriteLine("Can't you read brother?");
                     break;
             }
 
+            
+
         }while(!exit);
+    }
+
+    private static void database(){
+        var cs = @"Server=localhost\MSSQLSERVER;Database=carsDB;Trusted_Connection=True;";
+
+        using var con = new SqlConnection(cs);
+        con.Open();
+
+        var cars = con.Query<Car>("SELECT * FROM cars").ToList();
+
+        cars.ForEach(car => Console.WriteLine(car));
     }
 
     private static int getChoice()
     {
         int.TryParse(Console.ReadLine().Trim(), out int optionSelected);
-
+        
         return optionSelected;
     }
 
@@ -52,10 +70,13 @@ public static class Andre
         Console.WriteLine("2 - Calculator");
         //It's Morpheus being cool again
         Console.WriteLine("3 - Enter the Matrix");
+        Console.WriteLine("4 - Retrieve data from small Db");
         Console.WriteLine("What you want?: ");
     }
     
 
+
+#region Calculator
     private static void calculatorMenu()
     {
         var operations = Enum.GetValues(typeof(Operators)).Cast<Operators>().ToList();
@@ -77,11 +98,15 @@ public static class Andre
 
     }
 
+
+
+
     private static double compute(Operators operation, string calc)
     {
         double sum=0;
         string[] wholeOperation = calc.Split((char)operation, StringSplitOptions.RemoveEmptyEntries);
         int[] numbersToCompute = new int[wholeOperation.Length];
+        
         for(int i=0;i<wholeOperation.Length;i++)
         {
             int.TryParse(wholeOperation[i], out numbersToCompute[i]);
@@ -101,6 +126,7 @@ public static class Andre
                 sum = multiply(numbersToCompute);
                 break;
         }
+
         Console.WriteLine(sum);
         askToContinue();
         return sum;
@@ -143,6 +169,7 @@ public static class Andre
         }
         return sum;
     }
+#endregion
 
     private static void theMatrix(){
         int[,] matrix = new int[5,5];
