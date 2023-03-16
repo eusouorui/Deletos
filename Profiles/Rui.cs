@@ -8,14 +8,14 @@ public static class Rui
     
     public static void Menu()
     {
-        bool exit = false;
-        int option;
+        var exit = false;
+        var option = 0;
 
         do
         {
             option = SelectMenuOption();
 
-            switch(option)
+            switch (option)
             {
                 case 1:
                     StringMenu();
@@ -35,13 +35,13 @@ public static class Rui
                     break;
             }
 
-            if(!exit)
+            if (!exit)
             {
                 Console.WriteLine("Press enter to continue...");
                 Console.ReadKey();
             }
 
-        } while(!exit);
+        } while (!exit);
     }
 
     private static int SelectMenuOption()
@@ -51,14 +51,14 @@ public static class Rui
         Console.WriteLine("Hello Rui, What would you like to do?\n");
         var options = Enum.GetValues(typeof(MenuOptions)).Cast<MenuOptions>().ToList();
         
-        foreach(var option in options)
+        foreach (int option in options)
         {
-            Console.WriteLine((int)option + " - " + option);
+            Console.WriteLine(option + " - " + option);
         }
         Console.WriteLine("0 - Exit Profile");
 
         Console.WriteLine("Your option: ");
-        int.TryParse(Console.ReadLine(), out int chosenOption);
+        int.TryParse(Console.ReadLine(), out var chosenOption);
 
         return chosenOption;
     }
@@ -72,8 +72,8 @@ public static class Rui
         Console.WriteLine(DateTime.Now);
         Console.WriteLine("Hello Rui, What would you like to do?\n");
 
-        bool exit = false;
-        int option;
+        var exit = false;
+        var option = 0;
 
         do
         {
@@ -97,7 +97,7 @@ public static class Rui
                 Console.ReadKey();
             }
 
-        }while(!exit);
+        }while (!exit);
     }
 
     private static int SelectStringMenuOption()
@@ -107,14 +107,14 @@ public static class Rui
         Console.WriteLine("Hello Rui, What would you like to do?\nStrings Menu\n");
         var stringOptions = Enum.GetValues(typeof(StringMenuOptions)).Cast<StringMenuOptions>().ToList();
 
-        foreach(var option in stringOptions)
+        foreach(int option in stringOptions)
         {
-            Console.WriteLine((int)option + " - " + option);
+            Console.WriteLine(option + " - " + option);
         }
         Console.WriteLine("0 - Exit Strings Menu");
 
         Console.WriteLine("Your option: ");
-        int.TryParse(Console.ReadLine(), out int chosenOption);
+        int.TryParse(Console.ReadLine(), out var chosenOption);
 
         return chosenOption;
     }
@@ -126,13 +126,11 @@ public static class Rui
     enum MenuOptions
     {
         Strings = 1,
-
     }
 
     enum StringMenuOptions
     {
         InvertString = 1,
-
     }
     #endregion
 
