@@ -62,7 +62,7 @@ namespace Deletos.Handlers
                 Console.WriteLine((int)profile + " - " + profile);
             }
 
-            int.TryParse(Console.ReadLine(), out int chosenProfile);
+            int.TryParse(Console.ReadLine() ?? string.Empty, out int chosenProfile);
 
             //TODO make validations
             return chosenProfile;
