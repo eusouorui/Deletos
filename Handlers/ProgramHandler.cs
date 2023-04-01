@@ -50,7 +50,7 @@ namespace Deletos.Handlers
         {
             Console.WriteLine("Please select your profile:");
             
-            var profiles = new List<Profile> 
+            var profiles = new List<Profile>
             {
                 //TODO get a better way of doing this
                 Profile.Andre,
@@ -66,6 +66,6 @@ namespace Deletos.Handlers
 
             //TODO make validations
             return chosenProfile;
-        } 
+        }
     }
 }
