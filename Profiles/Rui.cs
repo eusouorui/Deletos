@@ -5,7 +5,7 @@ public static class Rui
     #region Menus
 
     #region Main menu
-    
+
     public static void Menu()
     {
         var exit = false;
@@ -50,7 +50,7 @@ public static class Rui
         Console.WriteLine(DateTime.Now);
         Console.WriteLine("Hello Rui, What would you like to do?\n");
         var options = Enum.GetValues(typeof(MenuOptions)).Cast<MenuOptions>().ToList();
-        
+
         foreach (int option in options)
         {
             Console.WriteLine(option + " - " + option);
@@ -79,7 +79,7 @@ public static class Rui
         {
             option = SelectStringMenuOption();
 
-            switch(option)
+            switch (option)
             {
                 case 1:
                     break;
@@ -91,13 +91,13 @@ public static class Rui
                     break;
             }
 
-            if(!exit)
+            if (!exit)
             {
                 Console.WriteLine("Press enter to continue...");
                 Console.ReadKey();
             }
 
-        }while (!exit);
+        } while (!exit);
     }
 
     private static int SelectStringMenuOption()
@@ -107,7 +107,7 @@ public static class Rui
         Console.WriteLine("Hello Rui, What would you like to do?\nStrings Menu\n");
         var stringOptions = Enum.GetValues(typeof(StringMenuOptions)).Cast<StringMenuOptions>().ToList();
 
-        foreach(int option in stringOptions)
+        foreach (int option in stringOptions)
         {
             Console.WriteLine(option + " - " + option);
         }
