@@ -18,7 +18,7 @@ public static class Rui
             switch (option)
             {
                 case 1:
-                    StringMenu();
+                    Console.WriteLine("You chose option 1");
                     break;
                 case 2:
                     Console.WriteLine("You chose option 2");
@@ -64,74 +64,14 @@ public static class Rui
     }
     #endregion
 
-    #region String Menu
-
-    private static void StringMenu()
-    {
-        Console.Clear();
-        Console.WriteLine(DateTime.Now);
-        Console.WriteLine("Hello Rui, What would you like to do?\n");
-
-        var exit = false;
-        var option = 0;
-
-        do
-        {
-            option = SelectStringMenuOption();
-
-            switch (option)
-            {
-                case 1:
-                    break;
-                case 0:
-                    Console.WriteLine("You chose option 0 - Exit Strings Menu");
-                    exit = Exit();
-                    break;
-                default:
-                    break;
-            }
-
-            if (!exit)
-            {
-                Console.WriteLine("Press enter to continue...");
-                Console.ReadKey();
-            }
-
-        } while (!exit);
-    }
-
-    private static int SelectStringMenuOption()
-    {
-        Console.Clear();
-        Console.WriteLine(DateTime.Now);
-        Console.WriteLine("Hello Rui, What would you like to do?\nStrings Menu\n");
-        var stringOptions = Enum.GetValues(typeof(StringMenuOptions)).Cast<StringMenuOptions>().ToList();
-
-        foreach (int option in stringOptions)
-        {
-            Console.WriteLine(option + " - " + option);
-        }
-        Console.WriteLine("0 - Exit Strings Menu");
-
-        Console.WriteLine("Your option: ");
-        int.TryParse(Console.ReadLine(), out var chosenOption);
-
-        return chosenOption;
-    }
-    #endregion
-
     #endregion
 
     #region Enums
     enum MenuOptions
     {
-        Strings = 1,
+        Register = 1,
     }
 
-    enum StringMenuOptions
-    {
-        InvertString = 1,
-    }
     #endregion
 
     private static bool Exit()
