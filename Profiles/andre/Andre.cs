@@ -4,6 +4,7 @@ using System.Threading;
 using System.Linq;
 using System.Data.SqlClient;
 using Dapper;
+
 public static class Andre
 {
     public static void Menu()
@@ -34,6 +35,8 @@ public static class Andre
                 case 4:
                     database();
                     break;
+                case 5:
+                    minigames();
                 default:
                     Console.WriteLine("Can't you read brother?");
                     break;
@@ -71,6 +74,8 @@ public static class Andre
         //It's Morpheus being cool again
         Console.WriteLine("3 - Enter the Matrix");
         Console.WriteLine("4 - Retrieve data from small Db");
+        //Enters minigames menu
+        Console.WriteLine("5 - Minigames");
         Console.WriteLine("What you want?: ");
     }
     
@@ -193,6 +198,32 @@ public static class Andre
         }
     }
 
+    private static void minigames(){
+        Console.Clear();
+        Console.WriteLine("1 - Play Minesweeper");
+        Console.WriteLine("0 - Leave");
+        int? option =  Int32.Parse(Console.ReadLine());
+        bool exit = false;
+        
+        switch(option){
+            case 0:
+                Console.Clear();
+                Console.WriteLine("0 - Leave forever? (y/n)");
+                exit = Exit();
+                break; 
+            case 1:
+                Console.Clear();
+                Console.WriteLine("Playing minesweeper huh?\n");
+                Thread.Sleep(750);
+                
+                Deletos.Minigames.Minesweeper.start();
+                break;
+            default:
+                Console.WriteLine("Not available.");
+                break;
+        }
+    }
+
     private static void askToContinue()
     {
         Console.WriteLine("Press any key to continue...");
@@ -205,5 +236,15 @@ public static class Andre
         Sub = '-',
         Div = '/',
         Mul = '*',
+    }
+
+    // roubei
+    private static bool Exit()
+    {
+        Console.WriteLine("\nAre you sure you want to quit? Y/N\n\nResponse:");
+
+        var response = Console.ReadLine()?.ToLower();
+
+        return string.Equals(response, "yes", StringComparison.InvariantCultureIgnoreCase) || string.Equals(response, "y", StringComparison.InvariantCultureIgnoreCase);
     }
 }
